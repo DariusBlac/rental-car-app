@@ -6,8 +6,10 @@ export const Navigation = () => {
 
   return (
     <>
-      <div>
-        <h2>Rental car</h2>
+      <header>
+        <div>
+          <h2>Rental car</h2>
+        </div>
         <div>
           <button
             onClick={() => {
@@ -31,11 +33,13 @@ export const Navigation = () => {
             Favorite
           </button>
         </div>
-      </div>
+      </header>
 
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      <main>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </main>
     </>
   );
 };

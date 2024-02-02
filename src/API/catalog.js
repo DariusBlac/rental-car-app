@@ -6,6 +6,10 @@ const instance = axios.create({
 
 export const getAllCar = async () => {
   const { data } = await instance.get('advert');
-  console.log(data);
+  return data;
+};
+
+export const getCarPagination = async page => {
+  const { data } = await instance.get(`advert?page=${page}&limit=12`);
   return data;
 };
