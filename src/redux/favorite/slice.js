@@ -9,7 +9,7 @@ export const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, { payload }) => {
-      state.favorite = [...state.favorite, ...payload];
+      state.favorite = [...state.favorite, payload];
     },
     deleteFavorite: (state, { payload }) => {
       const index = state.favorite.findIndex(car => car.id === payload);
