@@ -9,7 +9,7 @@ export const getAllCar = async () => {
   return data;
 };
 
-export const getCarPagination = async page => {
-  const { data } = await instance.get(`advert?page=${page}&limit=12`);
+export const getCarPagination = async (page, limit) => {
+  const { data } = await instance.get(`advert?page=${page}&limit=${limit}`);
   return data;
 };

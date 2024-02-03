@@ -28,6 +28,11 @@ const addStatusThunk = status => {
 export const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
+  reducers: {
+    clearCars: state => {
+      state.cars = [];
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getAllCarsThunk.fulfilled, (state, { payload }) => {
@@ -46,3 +51,4 @@ export const catalogSlice = createSlice({
 });
 
 export const catalogReducer = catalogSlice.reducer;
+export const { clearCars } = catalogSlice.actions;
