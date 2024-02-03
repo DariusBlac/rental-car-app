@@ -1,39 +1,34 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import {
+  TitleWrap,
+  Wrap,
+  Title,
+  Image,
+  Nav,
+  StyledNavLink,
+  Header,
+} from './Navigation.styled';
+import car from '../../images/car-rental1.png';
 
 export const Navigation = () => {
-  const navigate = useNavigate();
-
   return (
     <>
-      <header>
-        <div>
-          <h2>Rental car</h2>
+      <Header>
+        <div className="container">
+          <Wrap>
+            <TitleWrap>
+              <Image src={car} alt="icon logo" />
+              <Title>Rental car</Title>
+            </TitleWrap>
+            <Nav>
+              <StyledNavLink to={'/'}>Home</StyledNavLink>
+              <StyledNavLink to={'/catalog'}>Catalog</StyledNavLink>
+              <StyledNavLink to={'/favorite'}>Favorite</StyledNavLink>
+            </Nav>
+          </Wrap>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            Home
-          </button>
-          <button
-            onClick={() => {
-              navigate('catalog');
-            }}
-          >
-            Catalog
-          </button>
-          <button
-            onClick={() => {
-              navigate('favorite');
-            }}
-          >
-            Favorite
-          </button>
-        </div>
-      </header>
+      </Header>
 
       <main>
         <Suspense>
