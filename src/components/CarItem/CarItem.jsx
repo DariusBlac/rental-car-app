@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { addFavorite, deleteFavorite } from '../../redux/favorite/slice';
 import { favoriteCarsSelector } from '../../redux/favorite/selectors';
 import CarNotFound from '../../images/not-found.webp';
+import { openModal } from '../../redux/modal/slice';
 import {
   CarItemStyle,
   CarCard,
@@ -51,6 +52,10 @@ export const CarItem = ({ car }) => {
     isCarFavorite ? dispatch(deleteFavorite(id)) : dispatch(addFavorite(car));
   };
 
+  const onClickOpen = () => {
+    dispatch(openModal(car));
+  };
+
   return (
     <CarItemStyle>
       <CarCard>
@@ -93,7 +98,7 @@ export const CarItem = ({ car }) => {
           </DescriptListWrap>
         </DescriptionWrap>
       </CarCard>
-      <Button>Learn more</Button>
+      <Button onClick={onClickOpen}>Learn more</Button>
     </CarItemStyle>
   );
 };
