@@ -2,11 +2,14 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import { getAllCarsThunk, getCarPaginationThunk } from './thunk';
 
+import { makeUniqueBrands } from '../../helpers/helpers';
+
 const initialState = {
   isLoading: false,
   error: null,
   carsAll: [],
   cars: [],
+  brands: [],
 };
 
 const onPending = state => {
@@ -37,6 +40,7 @@ export const catalogSlice = createSlice({
     builder
       .addCase(getAllCarsThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        state.brands = makeUniqueBrands(payload);
         state.error = null;
         state.carsAll = payload;
       })
