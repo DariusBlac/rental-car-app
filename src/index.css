@@ -67,6 +67,10 @@ button {
   margin: 0 auto;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
